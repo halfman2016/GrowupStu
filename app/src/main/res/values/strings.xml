@@ -1,16 +1,74 @@
 <resources>
-    <string name="app_name">GrowupStu</string>
+    <string name="app_name">补天德育</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="prompt_uid">账号</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="error_invalid_uid">账号不合法</string>
+    <string name="error_invalid_password">密码太短</string>
+    <string name="error_incorrect_password">密码不正确</string>
+    <string name="error_field_required">请输入有效信息</string>
+    <string name="permission_rationale">权限问题</string>
+    <string name="title_activity_main">艳阳成长系统</string>
+    <string name="action_settings">设置</string>
+    <string name="section_format">提示： %1$d</string>
+
+    <string name="info">最新</string>
+    <string name="subject">专题</string>
+    <string name="pin">标定</string>
+    <string name="analysis">分析</string>
+
+    <string name="subject_list">最新</string>
+    <string name="subject_details">详细</string>
+    <string name="subject_announce">通告</string>
+    <string name="subject_partake">参与</string>
+    <string name="subject_pin">标定</string>
+
+    <string name="txt_subject_title">专题名称</string>
+    <string name="txt_subject_info">专题简介</string>
+    <string name="txt_subject_time">专题时间</string>
+    <string name="txt_subject_starttime">开始时间</string>
+    <string name="txt_subject_endtime">结束时间</string>
+    <string name="class91">九1班</string>
+    <string name="class92">九2班</string>
+    <string name="class93">九3班</string>
+    <string name="class81">八1班</string>
+    <string name="class82">八2班</string>
+    <string name="class83">八3班</string>
+    <string name="qixin">启新班</string>
+
+    <string name="promptstarttime">开始时间</string>
+    <string name="promptendtime">结束时间</string>
+    <string name="promptannouce">通告</string>
+
+    <string name="promptpinto">第一步:选择标定给谁?</string>
+    <string name="promptpinaction">第二步:检索标定行为,结果显示在下表</string>
+    <string name="promptannoucepeople">发布人</string>
+    <string name="promptannoucetime">发布时间</string>
+    <string name="btnannoucesubmit">发布通告</string>
+    <string name="promptorgintotal">原创发布总计</string>
+    <string name="promptliketotal">点赞总计</string>
+    <string name="promptjoin">参与度最高</string>
+    <string name="promptorginmost">原创最多</string>
+    <string name="promptlikemost">点赞最多</string>
+    <string name="promptjoinless">参与度最低</string>
+
+    <string name="promptorginno">缺失原创</string>
+    <string name="btnpinAction">标定</string>
+
+    <string name="titleday">日常规</string>
+    <string name="promptdaypic">拍摄附注图片</string>
+    <string name="promptsave">保存</string>
+    <string name="promptcancel">取消</string>
+
+    <string name="photodate">拍摄日期</string>
+    <string name="photoauthor">拍摄人</string>
+    <string name="photomemo">拍摄说明</string>
+
+    <string name="savepeople">保存人员</string>
+    <string name="subjectname">专题名称</string>
+    <string name="title_activity_subject_oper">Subject_oper</string>
+
 </resources>
