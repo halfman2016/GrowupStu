@@ -6,6 +6,8 @@ import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +22,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -35,7 +38,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yper.jiangfeng.growupstu.Activity.MainActivity;
 import com.yper.jiangfeng.growupstu.Module.Student;
+import com.yper.jiangfeng.growupstu.Module.Updateobj;
 import com.yper.jiangfeng.growupstu.Utils.MDBTools;
+import com.yper.jiangfeng.growupstu.Utils.UpdateManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +51,9 @@ import static android.Manifest.permission.READ_CONTACTS;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+
+    private UpdateManager update=new UpdateManager(this);
+    private int thisversion=0;
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -72,12 +80,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private Student student;
     private MDBTools mdb=new MDBTools();
+    private Updateobj updateobj=new Updateobj();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("补天德育 学生端");
+        setSupportActionBar(toolbar);
+
         mNameView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
 
@@ -108,7 +122,48 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         SharedPreferences settings = getPreferences(MODE_PRIVATE);
         mNameView.setText(settings.getString("UID", null));
         mPasswordView.setText(settings.getString("PWD", null));
+
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                updateobj = mdb.getUpdate("btdy-stu");
+                Message msg=new Message();
+                msg.what=1;
+                myhandler.sendMessage(msg);
+            }
+        }.start();
+
+
     }
+
+    private Handler myhandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 1:
+                    try {
+                        thisversion=getPackageManager().getPackageInfo("com.yper.feng.growup",0).versionCode;
+                    } catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    if (thisversion==updateobj.getVersion())
+                    {
+                        //version 相等什么都不用做啊
+                    }
+                    else
+                    {
+                        //升级啊
+                        update.checkUpdateInfo();
+                    }
+
+                    break;
+            }
+        }
+    };
+
+
 
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {

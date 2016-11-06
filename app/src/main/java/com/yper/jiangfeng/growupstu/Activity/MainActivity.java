@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -33,26 +35,26 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     List<Subject> subjectList=new ArrayList<>();
 
+private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         Intent intent=getIntent();
         Gson gson=new GsonBuilder().create();
         student=gson.fromJson(intent.getStringExtra("student"),Student.class);
-         listView= (ListView) findViewById(R.id.sublist);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(student.getName());
+        setSupportActionBar(toolbar);
 
-        Button btn= (Button) findViewById(R.id.takephoto);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                int maxSeletNum=1;
-//                ImageSelectorActivity.start(MainActivity.this,maxSeletNum,ImageSelectorActivity.MODE_SINGLE,true,true,false);
 
-            }
-        });
+        listView= (ListView) findViewById(R.id.listview);
+
+
 
         loaddata();
      }
@@ -71,9 +73,6 @@ public class MainActivity extends AppCompatActivity {
         {
             case R.id.takephoto:
 
-            int maxSeletNum=1;
-
-                ImageSelectorActivity.start(MainActivity.this,maxSeletNum,ImageSelectorActivity.MODE_SINGLE,true,true,false);
 
 
             default:

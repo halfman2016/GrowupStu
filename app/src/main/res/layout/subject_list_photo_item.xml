@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relayout">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/photoauthor"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:clickable="false" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/photodate"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:clickable="false" />
+
+        <com.android.volley.toolbox.NetworkImageView
+            app:srcCompat="@mipmap/no_pic"
+            android:id="@+id/photopic"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/photoauthor"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitCenter"
+            android:layout_height="200dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/photomemo"
+            android:clickable="false"
+            android:layout_below="@+id/photopic"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_height="40dp"
+            android:id="@+id/imageButton"
+            android:layout_width="40dp"
+            android:layout_below="@+id/photomemo"
+            android:layout_alignParentEnd="true"
+            android:src="@mipmap/more" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@android:drawable/btn_star_big_on"
+            android:layout_marginStart="12dp"
+            android:id="@+id/imgzan"
+            android:layout_below="@+id/photomemo"
+            android:layout_alignParentStart="true"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

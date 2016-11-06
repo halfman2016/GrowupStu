@@ -5,5 +5,5 @@
     <item android:title="Item"
         holo:showAsAction="always"
         android:id="@+id/takephoto"
-        android:icon="@android:drawable/ic_menu_camera" />
+        android:icon="@android:drawable/ic_dialog_info" />
 </menu>

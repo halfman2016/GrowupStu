@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">补天德育</string>
+    <string name="app_name">补天德育学生端</string>
 
     <!-- Strings related to login -->
     <string name="prompt_uid">账号</string>

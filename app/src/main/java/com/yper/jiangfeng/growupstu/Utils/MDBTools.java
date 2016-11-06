@@ -617,6 +617,14 @@ if(doc==null)
         return result;
     }
 
+    public  void savePhotopic(Photopic photopic){
+        mongoCollection=mongoDatabase.getCollection("photos");
+        Gson gson=new GsonBuilder().create();
+
+        Document doc=Document.parse(gson.toJson(photopic));
+        mongoCollection.updateOne(Filters.eq("_id",photopic.get_id().toString()),new Document("$set",doc));
+    }
+
 
     public Updateobj getUpdate(String apkname){
 
@@ -628,17 +636,7 @@ if(doc==null)
         return updateobj;
     }
 
-    public void addComment(Comment comment){
-        mongoCollection=mongoDatabase.getCollection("comments");
-        Gson gson=new GsonBuilder().create();
-        Document doc=Document.parse(gson.toJson(comment));
-        mongoCollection.insertOne(doc);
-    }
-    public void addZan(Zan zan){
-        mongoCollection=mongoDatabase.getCollection("zans");
-        Gson gson=new GsonBuilder().create();
-        Document doc=Document.parse(gson.toJson(zan));
-        mongoCollection.insertOne(doc);
-    }
+
+
 
 }

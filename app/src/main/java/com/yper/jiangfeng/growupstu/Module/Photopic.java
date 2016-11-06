@@ -1,6 +1,7 @@
 package com.yper.jiangfeng.growupstu.Module;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -12,9 +13,28 @@ public class Photopic extends Photo{
     private String photoauthor;
     private String photomemo;
 
+    private List<Zan> zanList;
+    private List<Comment> commentList;
+
+
     private UUID belongToSubject; // 照片属于哪个专题
     private int haspined; //0从未标定，1 标定了，n 标定了几次
 
+    public List<Zan> getZanList() {
+        return zanList;
+    }
+
+    public void setZanList(List<Zan> zanList) {
+        this.zanList = zanList;
+    }
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
 
     public Date getPhotodate() {
         return photodate;
