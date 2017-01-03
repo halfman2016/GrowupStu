@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             switch (msg.what){
                 case 1:
                     try {
-                        thisversion=getPackageManager().getPackageInfo("com.yper.feng.growup",0).versionCode;
+                        thisversion=getPackageManager().getPackageInfo("com.yper.jiangfeng.growupstu",0).versionCode;
                     } catch (PackageManager.NameNotFoundException e) {
                         e.printStackTrace();
                     }
