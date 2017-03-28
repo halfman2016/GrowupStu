@@ -7,6 +7,8 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoCredential;
+import com.mongodb.ServerAddress;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
@@ -39,6 +41,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -49,7 +52,11 @@ import java.util.UUID;
  * Created by Feng on 2016/7/17.
  */
 public class MDBTools {
-    private static final MongoClient mongoClient = new MongoClient("114.215.124.13", 27017);
+   // private static final MongoClient mongoClient = new MongoClient("114.215.124.13", 27017);
+
+    private  static MongoCredential credential=MongoCredential.createScramSha1Credential("halfman","lizhi","halfman21".toCharArray());
+    private static MongoClient mongoClient=new MongoClient(new ServerAddress("boteteam.com",27017), Arrays.asList(credential));
+
     private MongoDatabase mongoDatabase;
     private MongoCollection<Document> mongoCollection = null;
 
